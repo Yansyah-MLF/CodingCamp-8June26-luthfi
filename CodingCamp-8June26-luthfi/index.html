@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camping Gear Store Inventory</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>🏕️ Camping Gear Store</h1>
+            <button id="theme-toggle" class="btn-toggle">🌙 Mode</button>
+        </header>
+
+        <section class="balance-card">
+            <h2>Total Inventory Value</h2>
+            <h1 id="total-balance">Rp 0</h1>
+            
+            <div class="budget-limit-box">
+                <label for="budget-limit">Set Value Alert Limit:</label>
+                <input type="number" id="budget-limit" value="5000000" placeholder="e.g. 5000000">
+                <p id="budget-warning" class="warning-text hidden">⚠️ Warning: Stock Value Exceeded Limit!</p>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <h3>Stock Distribution by Category</h3>
+            <div class="chart-container">
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h3>Add New Product</h3>
+            <form id="expense-form">
+                <div class="form-group">
+                    <input type="text" id="item-name" placeholder="Product Name (e.g., Waterproof Tent x4)" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="item-amount" placeholder="Price (Rp)" required>
+                </div>
+                <div class="form-group">
+                    <select id="item-category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="Tent">Tent</option>
+                        <option value="Hiking">Hiking</option>
+                        <option value="Lighting">Lighting</option>
+                        <option value="Safety">Safety</option>
+                        <option value="Cooking">Cooking</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Add Product</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <div class="list-header">
+                <h3>Product Inventory List</h3>
+                <select id="sort-filter">
+                    <option value="latest">Latest Added</option>
+                    <option value="amount-high">Price: High to Low</option>
+                    <option value="amount-low">Price: Low to High</option>
+                    <option value="category">Group by Category</option>
+                </select>
+            </div>
+            <div class="scrollable-list">
+                <ul id="transaction-list">
+                    </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
